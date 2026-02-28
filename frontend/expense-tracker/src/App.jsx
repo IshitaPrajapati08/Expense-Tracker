@@ -16,12 +16,15 @@ import { Transaction } from "./pages/Dashboard/transaction";
 import { Categories } from "./pages/Dashboard/category";
 import { Reports } from "./pages/Dashboard/report";
 import { Income } from "./components/layouts/income";
+import Settings from "./pages/Dashboard/settings";
+import Landing from "./pages/Landing";
 
 const App=()=> {
   return (
     <>
     <Router>
       <Routes>
+         <Route path="/" exact element={<Landing />} /> 
          <Route path="/Login" exact element={<Login />} /> 
           <Route path="/SignUp" exact element={<SignUp />} /> 
           <Route path="/ForgetPassword" exact element={<ForgetPassword />} /> 
@@ -33,6 +36,7 @@ const App=()=> {
              <Route path="/categories" exact element={<Categories />} />
             <Route path="/reports" exact element={<Reports />} />
             <Route path="/income" exact element={<Income />} />
+            <Route path="/settings" exact element={<Settings />} />
            
       </Routes>
       </Router>

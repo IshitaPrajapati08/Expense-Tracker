@@ -9,8 +9,83 @@
   html{
     font-family: var(--font-display);
   }
-  body{
-    background-color:black;
-    overflow-x: hidden;
+  :root{
+    --bg: #f8fafc;
+    --surface: #ffffff;
+    --muted: #6b7280;
+    --text: #0f172a;
+    --accent: #3b82f6;
+    --glass: rgba(255,255,255,0.6);
   }
+
+  [data-theme="dark"]{
+    --bg: #0b1220;
+    --surface: #071026;
+    --muted: #9ca3af;
+    --text: #e6eef8;
+    --accent: #7c3aed;
+    --glass: rgba(10,12,18,0.5);
+  }
+
+  /* Override commonly used Tailwind utility colors in dark mode so components update visually */
+  [data-theme="dark"] .bg-blue-900{ background-color: var(--surface) !important; }
+  [data-theme="dark"] .text-blue-800{ color: var(--text) !important; }
+  [data-theme="dark"] .text-blue-200{ color: rgba(230,238,248,0.85) !important; }
+  [data-theme="dark"] .border-blue-700{ border-color: rgba(255,255,255,0.04) !important; }
+  [data-theme="dark"] .bg-white{ background-color: rgba(255,255,255,0.03) !important; color: var(--text) !important; }
+  [data-theme="dark"] .bg-blue-600{ background-color: var(--accent) !important; }
+  [data-theme="dark"] .hover\:bg-blue-700:hover{ background-color: rgba(124,58,237,0.85) !important; }
+  [data-theme="dark"] .bg-gray-100{ background-color: var(--bg) !important; }
+  [data-theme="dark"] .text-gray-500{ color: var(--muted) !important; }
+  [data-theme="dark"] .text-gray-700{ color: rgba(230,238,248,0.85) !important; }
+  [data-theme="dark"] .shadow{ box-shadow: 0 6px 18px rgba(2,6,23,0.6) !important; }
+
+  /* Theme toggle visuals */
+  .theme-toggle{ background: var(--glass); color: var(--text); border: 1px solid rgba(255,255,255,0.04); }
+  [data-theme="dark"] .theme-toggle .icon.light{ opacity: 0.6; }
+
+  body{
+    background-color: var(--bg);
+    color: var(--text);
+    overflow-x: hidden;
+    transition: background-color 300ms ease, color 300ms ease;
+  }
+
+  .theme-toggle .icon{
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    display:inline-block;
+    transition: transform 300ms ease, background 300ms ease;
+  }
+  .theme-toggle .icon.light{ background: linear-gradient(180deg,#ffd54d,#ffb74d); transform: translateY(0);} 
+  .theme-toggle .icon.dark{ background: linear-gradient(180deg,#9fa8da,#7c4dff); transform: translateY(0);} 
+
+  @keyframes fade-in {
+    from { opacity: 0; transform: translateY(6px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .animate-fade-in{ animation: fade-in 420ms ease both; }
+}
+/* ================= PREMIUM LANDING ANIMATIONS ================= */
+
+@keyframes gradient-x {
+  0%,100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+.animate-gradient-x {
+  background-size: 300% 300%;
+  animation: gradient-x 6s ease infinite;
+}
+
+/* soft floating effect */
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-12px); }
+  100% { transform: translateY(0px); }
+}
+
+.animate-float {
+  animation: float 5s ease-in-out infinite;
 }

@@ -104,7 +104,7 @@ export const Dashboard = () => {
       {/* Sidebar */}
       <aside className="w-64 bg-blue-900 text-white flex flex-col">
         <div className="p-6 text-2xl font-bold border-b border-blue-700">
-          $ ExpenseTracker
+           ExpenseTracker
         </div>
         <div className="p-4 border-b border-blue-700">
           <div className="text-sm">{user?.name || "User"}</div>
@@ -135,12 +135,14 @@ export const Dashboard = () => {
       <main className="flex-1 p-6">
         <div className="flex justify-between items-center mb-6">
           <h1 className="text-2xl font-bold text-blue-800">Dashboard</h1>
-          <button
-            onClick={() => setIsModalOpen(true)}
-            className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded shadow"
-          >
-            + Add Transaction
-          </button>
+          <div>
+            <button
+              onClick={() => setIsModalOpen(true)}
+              className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded shadow"
+            >
+              + Add Transaction
+            </button>
+          </div>
         </div>
 
         {/* Stat Cards */}

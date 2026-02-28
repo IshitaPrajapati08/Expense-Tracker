@@ -171,7 +171,7 @@ const handleAddCategory = async () => {
       {/* Sidebar */}
       <aside className="w-64 bg-blue-900 text-white flex flex-col">
         <div className="p-6 text-2xl font-bold border-b border-blue-700">
-          $ ExpenseTracker
+           ExpenseTracker
         </div>
         <div className="p-4 border-b border-blue-700">
           <div className="text-sm">{user.name}</div>
