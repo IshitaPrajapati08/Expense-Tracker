@@ -1,0 +1,12 @@
+node_modules/
+backend/server/.env
+frontend/expense-tracker/node_modules/
+frontend/node_modules/
+.env
+*.env
+.env.local
+.vscode/
+.DS_Store
+dist/
+build/
+"node_modules/\nbackend/server/.env\nfrontend/expense-tracker/node_modules/\n.vscode/\n.DS_Store" 
